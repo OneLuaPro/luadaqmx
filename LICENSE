@@ -1,6 +1,8 @@
+luadaqmx
+--------------------------------------------------------------------------------
 MIT License
 
-Copyright (c) 2024 OneLuaPro
+Copyright (c) 2024 Kritzel Kratzel.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +21,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+National Instruments / Data Acquisition (NI-DAQmx) SDK
+--------------------------------------------------------------------------------
+Copyright (c) National Instruments 2003-2024.  All Rights Reserved.     
+https://www.ni.com/en/about-ni/legal/software-license-agreement.html
