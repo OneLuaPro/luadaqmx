@@ -107,17 +107,26 @@ message(STATUS "C compiler flags: ${CMAKE_C_FLAGS} ${CMAKE_C_FLAGS_${CMAKE_BUILD
 
 # ------------------------------------------------------------------------------
 # Set architecture dependent NI-DAQ directories
-set(NIDAQmx_BASEDIR
-  "C:/Program Files (x86)/National Instruments/Shared/ExternalCompilerSupport/C"
-  CACHE PATH "NI-DAQ ANSI C base directory")
-set(NIDAQmx_INCDIR
-  ${NIDAQmx_BASEDIR}/include CACHE PATH "NI-DAQ ANSI C include directory")
+#
+# Base directory - try to read from environmental variable
+if (DEFINED ENV{NIEXTCCOMPILERSUPP})
+  message(STATUS "Variable NIEXTCCOMPILERSUPP is set - using it.")
+  set(NIDAQMX_BASEDIR "$ENV{NIEXTCCOMPILERSUPP}" CACHE PATH "NI-DAQmx ANSI C base directory")
+else()
+  message(WARNING "Variable NIEXTCCOMPILERSUPP not set - guessing path.")
+  set(NIDAQMX_BASEDIR
+    "C:/Program Files (x86)/National Instruments/Shared/ExternalCompilerSupport/C"
+    CACHE PATH "NI-DAQmx ANSI C base directory")
+endif()
+# Setting include and lib directories according to generator platfrom
+set(NIDAQMX_INCDIR
+  ${NIDAQMX_BASEDIR}/include CACHE PATH "NI-DAQmx ANSI C include directory")
 if (CMAKE_GENERATOR_PLATFORM STREQUAL x64)
-  set(NIDAQmx_LIBDIR
-    ${NIDAQmx_BASEDIR}/lib64/msvc CACHE PATH "NI-DAQ ANSI C lib64 directory")
+  set(NIDAQMX_LIBDIR
+    ${NIDAQMX_BASEDIR}/lib64/msvc CACHE PATH "NI-DAQmx ANSI C lib64 directory")
 elseif (CMAKE_GENERATOR_PLATFORM STREQUAL Win32)
-  set(NIDAQmx_LIBDIR
-    ${NIDAQmx_BASEDIR}/lib32/msvc CACHE PATH "NI-DAQ ANSI C lib32 directory")
+  set(NIDAQMX_LIBDIR
+    ${NIDAQMX_BASEDIR}/lib32/msvc CACHE PATH "NI-DAQmx ANSI C lib32 directory")
 else()
   message(FATAL_ERROR "Unknown generator platform given with option -A")
 endif()

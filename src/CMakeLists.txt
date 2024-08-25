@@ -26,10 +26,10 @@ add_library(luadaqmx SHARED)
 target_include_directories(luadaqmx PRIVATE ${LIBLUA_INCLUDEDIR})
 # setup platform-specific sources, compile and linker options
 if(WIN32 AND NOT MinGW)
-  target_include_directories(luadaqmx PRIVATE ${NIDAQmx_INCDIR})
+  target_include_directories(luadaqmx PRIVATE ${NIDAQMX_INCDIR})
   target_compile_options(luadaqmx PRIVATE /D_WINDLL /D_WIN32 /D_CRT_SECURE_NO_WARNINGS)
   target_link_options(luadaqmx PRIVATE /LIBPATH:${LIBLUA_LIBDIR} liblua.lib
-    /LIBPATH:${NIDAQmx_LIBDIR} NIDAQmx.lib)
+    /LIBPATH:${NIDAQMX_LIBDIR} NIDAQmx.lib)
 else()
   message(FATAL_ERROR "Not yet fully implemented.")
 endif()
