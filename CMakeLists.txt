@@ -23,7 +23,7 @@
 # ------------------------------------------------------------------------------
 # CMake for luadaqmx
 # ------------------------------------------------------------------------------
-# Setup with Visual Studio 17 2022 generator for Win32
+# Setup with Visual Studio 17 2022 generator for x64
 # ------------------------------------------------------------------------------
 # Visual Studio is a mutlti-configuration generator
 # https://stackoverflow.com/questions/24460486/
@@ -39,7 +39,7 @@
 
 # ------------------------------------------------------------------------------
 # General definitions
-cmake_minimum_required(VERSION 3.25 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.23 FATAL_ERROR)
 
 # ------------------------------------------------------------------------------
 # find liblua installation and version info
