@@ -1,6 +1,6 @@
 # luadaqmx
 
-OneLuaPro access to NI's DAQmx driver (v24.5.0 a.k.a. 2024 Q3).
+OneLuaPro access to NI's DAQmx driver.
 
 ## Usage
 
@@ -59,24 +59,6 @@ local major, minor, update = daq.getNIDAQVersion()
 print(string.format("Built with NI-DAQmx version %d.%d.%d.",major, minor, update))
 
 Built with NI-DAQmx version 24.5.0.
-```
-
-## Install
-
-- Install OneLuaPro to `c:\Apps`.
-- Install MSVC Build Tools as described in https://github.com/OneLuaPro/OneLuaPro?tab=readme-ov-file#building-and-installing-oneluapro-from-source-code
-- Download and install https://www.ni.com/de/support/downloads/drivers/download.ni-daq-mx.html#544231
-  - Install NI-DAQmx - Support for C
-  - NI-Certificates
-  - Assumes installation of headers and libraries into `C:\Program Files (x86)\National Instruments\Shared\ExternalCompilerSupport\C`
-
-```cmd
-mkdir build && cd build
-cmake .. -G "Visual Studio 17 2022" -A x64
-cmake --build . --config Release
-cmake --install . --config Release
-
-# Available architectures (-A ...) are: Win32, x64, ARM, ARM64
 ```
 
 ## License
